@@ -12,6 +12,9 @@ html {
   --mdc-theme-secondary: #eee;
   --mdc-theme-background: #36393e !important;
 }
+.mdc-button--outlined {
+  caret-color: #eee;
+}
 input,
 select,
 textarea {
