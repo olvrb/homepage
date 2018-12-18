@@ -1,8 +1,20 @@
 @import "../fonts/stylesheet.css";
+
 *,
 body,
 html {
-  background-color: #444;
+  /*background-color: #444;*/
+  color: #eee;
+}
+
+:root {
+  --mdc-theme-primary: #7289da;
+  --mdc-theme-secondary: #eee;
+  --mdc-theme-background: #36393e;
+}
+.mdc-text-field {
+  color: #eee;
+  background-color: #eee;
 }
 
 .center .parent {
