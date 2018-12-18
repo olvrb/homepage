@@ -1,0 +1,13 @@
+{
+  "name": "homepage-backend",
+  "version": "0.0.1",
+  "description": "A minimal personalized homepage.",
+  "main": "index.js",
+  "repository": "https://github.com/N/A",
+  "author": "Oliver Boudet <oboudet1@me.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}

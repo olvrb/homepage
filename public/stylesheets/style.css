@@ -11,9 +11,10 @@ html {
   --mdc-theme-primary: #7289da;
   --mdc-theme-secondary: #eee;
   --mdc-theme-background: #36393e !important;
+  --mdc-text-field-outline-color: #eee !important;
 }
 .mdc-button--outlined {
-  caret-color: #eee;
+  --mdc-theme-primary: #353535;
 }
 input,
 select,
@@ -21,8 +22,8 @@ textarea {
   color: #eee !important;
 }
 .mdc-text-field {
+  border-color: #eee !important;
   color: #eee;
-  background-color: #eee;
 }
 .mdc-floating-label {
   color: #acbdbd !important;
