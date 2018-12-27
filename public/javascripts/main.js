@@ -17,10 +17,31 @@ document.querySelector("#google").onsubmit = (e) => {
 };
 
 (() => {
+    SearchTextField.focus();
     if (!navigator.geolocation) return;
-    const location = navigator.geolocation.getCurrentPosition(DisplayLocation);
+    navigator.geolocation.getCurrentPosition(DisplayLocation);
 })();
 
-function DisplayLocation(pos) {
-    console.log(pos);
+async function DisplayLocation(pos) {
+    const desc = document.getElementById("weatherDesc")
+    const skycons = new Skycons({
+        "color": "#eee"
+    });
+
+    const forecast = JSON.parse(await (await fetch("/api/v1/weather", {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            lat: pos.coords.latitude,
+            long: pos.coords.longitude
+        })
+    })).json());
+    skycons.add("weathericon", forecast.currently.icon)
+    skycons.play();
+    desc.innerHTML = `${Math.floor(forecast.currently.temperature)}&deg;C, ${forecast.currently.summary}`;
+    console.log(forecast);
+
 }

@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const { homepageController } = require("./controllers/homepageController");
+const { weatherController } = require("./controllers/weatherController");
 const path = require("path");
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/", homepageController);
+app.post("/api/v1/weather", weatherController);
 
 app.listen(3220, () => {
     console.log(`Listening on port 3220: http://localhost:3220`);
