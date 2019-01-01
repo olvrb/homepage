@@ -28,7 +28,7 @@ async function DisplayLocation(pos) {
         "color": "#eee"
     });
 
-    const forecast = JSON.parse(await (await fetch("/api/v1/weather", {
+    const forecast = (await fetch("/api/v1/weather", {
         method: "POST",
         headers: {
             Accept: "application/json",
@@ -38,7 +38,7 @@ async function DisplayLocation(pos) {
             lat: pos.coords.latitude,
             long: pos.coords.longitude
         })
-    })).json());
+    })).json();
     skycons.add("weathericon", forecast.currently.icon)
     skycons.play();
     desc.innerHTML = `${Math.floor(forecast.currently.temperature)}&deg;C, ${forecast.currently.summary}`;
