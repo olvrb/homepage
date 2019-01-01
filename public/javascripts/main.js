@@ -39,8 +39,6 @@ async function DisplayLocation(pos) {
             long: pos.coords.longitude
         })
     })).json();
-    console.log(forecast);
-
     skycons.add("weathericon", forecast.currently.icon)
     skycons.play();
     desc.innerHTML = `${Math.floor(forecast.currently.temperature)}&deg;C, ${forecast.currently.summary}`;
